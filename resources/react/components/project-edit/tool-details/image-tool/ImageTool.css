@@ -1,0 +1,6 @@
+.imageFileUploadButton{
+    cursor: pointer;
+}
+.imageFileUploadButton:hover{
+    background-color: gray;
+}

@@ -1,0 +1,16 @@
+.auth-description{
+    text-align: center;
+    font-size:40px;
+}
+
+.login-row{
+    display: flex;
+    align-items: center;
+}
+
+.login-button{
+    cursor: pointer;
+    padding:0.7% 0;
+    font-size:20px;
+    border:1px black solid;
+}

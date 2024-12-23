@@ -1,0 +1,29 @@
+.imageFileDroppableArea {
+    overflow-wrap: break-word;
+
+    border-radius: 8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.imageFileDroppableAreaContent{
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 垂直方向 */
+        align-items: center; /* 水平方向 */
+        color: #fff;
+        z-index: 2;
+        border: 2px dashed #ccc;
+        margin:10vh auto;
+        height:80%;
+        width: 80%;
+        background-color: rgba(0,0,0,0.7);
+        border-radius: 30px;
+        font-size: 16px;
+    
+}

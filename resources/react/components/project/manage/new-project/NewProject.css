@@ -1,0 +1,19 @@
+.newProject{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(ff,ff,ff,0);
+}
+
+.newProjectForward{
+    position:fixed;
+    top:25vh;
+    left:20vw;
+    height:50vh;
+    width:60vw;
+    background-color: white;
+    border-radius:3vw;
+    border:black 1px solid;
+}

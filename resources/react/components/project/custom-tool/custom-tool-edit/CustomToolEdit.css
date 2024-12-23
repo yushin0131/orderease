@@ -1,0 +1,136 @@
+body {
+    overflow-y: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
+}
+
+.tool-container {
+    position: fixed;
+    width: 100vw;
+    height: 8vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+.icon-cross {
+    margin-left: auto;
+}
+
+.code-preview-container {
+    margin-top: 8vh;
+    /* position: fixed; */
+    width: 100vw;
+    height: 92vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    color: #d4d4d4;
+    z-index: 0;
+}
+
+.extension-tool-preview,
+.extension-tool-editor {
+    flex: 4.75;
+    display: flex;
+    flex-direction: column;
+}
+
+.extension-tool-docs {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.extension-tool-preview {
+    background-color: #ffffff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid #333;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.extension-tool-editor {
+    background-color: #292A30;
+    overflow-y: hidden;
+}
+
+.extension-tool-header {
+    padding-bottom:1.5vh;
+    background-color: #333;
+    font-weight: bold;
+    color: #dcdcdc;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+.extension-tool-html-code {
+    flex: 1;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 15px;
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
+    overflow: auto;
+}
+
+.extension-tool-html-code::-webkit-scrollbar {
+    width: 10px;
+}
+
+.extension-tool-html-code::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+.extension-tool-preview-content {
+    padding: 20px;
+    color: #1e1e1e;
+    font-size: 16px;
+}
+
+.extension-tool-docs {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 2px;
+    width: 100vh;
+    background-color: #333;
+}
+
+.extension-tool-doc {
+    width: 5vw;
+    height: 5vw;
+    color: white;
+    border-bottom: 1px white solid;
+}
+
+.extension-tool-docs::-webkit-scrollbar {
+    background: white;
+    width: 3px;
+    border-radius: 20px;
+}
+
+.extension-tool-docs::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 20px;
+}
+
+
+
+.reactCodeMirror::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 20px;
+}
+
+.reactCodeMirror::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 20px;
+}

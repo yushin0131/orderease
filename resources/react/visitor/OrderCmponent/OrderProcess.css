@@ -1,0 +1,54 @@
+.orderProcessWrapper {
+    display: grid;
+    grid-template-rows:0fr 0fr 5fr;
+    height: 80vh;
+}
+
+/* .order-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 74vh;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+} */
+
+/* .product {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    height: 20vh;
+    width: 35vw;
+    text-align: center; 
+}
+
+商品名が長い場合に省略表示
+.product span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (min-width: 450px) {
+    .product {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        height: 20vh;
+        width: 20vw;
+        text-align: center; 
+    }
+}
+
+@media (min-width: 500px) {
+    .product {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        height: 20vh;
+        width: 12.5vw;
+        text-align: center; 
+    }
+} */

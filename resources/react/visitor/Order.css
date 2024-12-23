@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+}
+
+.orderWrapper {
+    display: grid;
+    grid-template-rows: 0fr 0fr 10fr 0fr 0fr;
+    height:100vh;
+}
+
+.tab-name {
+    height: 10vh;
+    margin-left: 2vw;
+}
+
+.footer-tab {
+    height: 5vh;
+}

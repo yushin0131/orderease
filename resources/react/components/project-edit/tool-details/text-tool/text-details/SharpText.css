@@ -1,0 +1,8 @@
+.item{
+    border:1px black solid;
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: gray;
+}

@@ -1,0 +1,114 @@
+.published-project-name {
+  margin: 10px;
+  font-size: 200%;
+}
+
+.published-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.published-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.account-button {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* トグルボタン */
+.published-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.toggle-label {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.published-toggle-button {
+  position: relative;
+  cursor: pointer;
+}
+
+.published-toggle-input {
+  display: none;
+}
+
+.published-toggle-label {
+  width: 55px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 40px;
+  position: relative;
+  display: inline-block;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.published-toggle-label:after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.4s;
+}
+
+.published-toggle-input:checked+.published-toggle-label {
+  background-color: #4BD865;
+}
+
+.published-toggle-input:checked+.published-toggle-label:after {
+  left: 30px;
+}
+
+.divider-line {
+  margin: 20px 0;
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+}
+
+/* 統計データ */
+.sales-amount-area,
+.sales-quantity-aria {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.date-button,
+.week-button,
+.month-button {
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.sales-datepicker {
+  margin: 0 10px;
+}
+
+.published-project-state-close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}

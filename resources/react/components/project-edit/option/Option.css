@@ -1,0 +1,59 @@
+.op-black-filter {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.op-content {
+    position:fixed;
+    top:35vh;
+    left:25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border:1px black solid;
+    width: 50vw;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 30px;
+    font-size: 16px;
+    z-index:101;
+}
+
+
+.op-public,.op-screen,.op-qr-code {
+    margin:30px;
+    white-space: nowrap;
+}
+
+.op-title{
+    margin-top:30px;
+}
+
+.op-button {
+    margin-left: 5%;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.op-input-underline {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline:none;
+    margin-left: 5px;
+    padding: 8px;
+    font-size: 15px;
+    width: 40px;
+}
+
+.op-input-underline:focus {
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.7);
+}

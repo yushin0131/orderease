@@ -1,0 +1,54 @@
+.ex-black-filter {
+    position: absolute;
+    top:-10%;
+    left:-10%;
+    width: 120%;
+    height: 120vh;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.ex-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直方向 */
+    align-items: center; /* 水平方向 */
+    position: relative;
+    color: #fff;
+    z-index: 2;
+    border:1px black solid;
+    margin:30vh auto;
+    width: 50%;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+
+.ex-menu {
+    margin:30px;
+    white-space: nowrap;
+}
+
+.ex-button {
+    margin-left: 5%;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.ex-input-underline {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline:none;
+    margin-left: 5px;
+    padding: 8px;
+    font-size: 15px;
+    width: 40px;
+}
+
+.ex-input-underline:focus {
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,37 @@
+.manage {
+  position: relative;
+  /* 相対位置を設定 */
+  overflow-y: scroll;
+  overflow-x:hidden;
+  padding:0 0 1.5% 1.5%;
+}
+
+.newproject {
+  position: fixed;
+  /* 絶対位置を設定 */
+  bottom: 20px;
+  /* 下から20px */
+  right: 20px;
+  /* 右から20px */
+  background-color: #6495ED;
+  /* 背景色 */
+  color: #0F5474;
+  /* テキスト色 */
+  padding: 10px 15px;
+  /* 内部余白 */
+  border-radius: 20px;
+  /* 角を丸くする */
+  opacity: 0.7;
+  /* 半透明に設定 */
+  transition: transform 0.2s;
+  /* ホバー時のアニメーション */
+
+  cursor: pointer;
+}
+
+.newproject:hover {
+  transform: scale(1.05);
+  /* ホバー時に少し拡大 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  /* ホバー時の影を強調 */
+}

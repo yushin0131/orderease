@@ -1,0 +1,12 @@
+.toolDetails{
+    padding:0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border:1px black solid;
+    left:0;
+    user-select: none;
+}
+
+.dragging {
+    cursor: grabbing;
+  }

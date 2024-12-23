@@ -1,0 +1,10 @@
+body{
+    overflow-y: hidden;
+    overflow-x:hidden;
+}
+
+.App{
+    position:fixed;
+    top:0;
+    left:0;
+}

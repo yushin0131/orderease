@@ -1,0 +1,181 @@
+.top-hr {
+    position:fixed;
+    left:0;
+    border: none;
+    border-top: 1.5px solid #000;
+    /* 線の太さと色 */
+    margin: 0;
+    padding:0;
+    /* 余白をなくす */
+    width: 100%;
+}
+
+.tooltip {
+    user-select: none;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.3% 1%;
+}
+
+.tooltip:hover {
+    color: rgb(110, 110, 110);
+}
+
+.topDescription {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: #000;
+    width: 100px;
+}
+
+.topDescription:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border: 15px solid transparent;
+    border-top: 15px solid #000;
+    margin-left: -15px;
+}
+
+.tooltip:hover .topDescription {
+    display: inline-block;
+    top: -70px;
+    left: -30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rightDescription {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: #000;
+    width: 100px;
+}
+
+.rightDescription:before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    right: 95%;
+    border: 15px solid transparent;
+    border-top: 15px solid #000;
+    margin-left: -15px;
+    transform: rotateZ(90deg);
+}
+
+.tooltip:hover .rightDescription {
+    display: inline-block;
+    top: 0px;
+    left: 80p;
+}
+
+
+.leftDescription{
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: #000;
+    width: 100px;
+}
+
+.leftDescription::before{
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 132px;
+    border: 15px solid transparent;
+    border-top: 15px solid #000;
+    margin-left: -15px;
+    transform: rotateZ(270deg);
+}
+
+.tooltip:hover .leftDescription{
+    display: inline-block;
+    top: 0px;
+    left: -130px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.bottomDescription {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius: 5px;
+    background: #000;
+    width: 72px;
+}
+
+.bottomDescription:before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    right: 60%;
+    border: 15px solid transparent;
+    border-top: 15px solid #000;
+    margin-left: -15px;
+    transform: rotateZ(180deg);
+}
+
+.tooltip:hover .bottomDescription {
+    display: inline-block;
+    top: 40px;
+    left: 0px;
+}
+
+.project-edit-title {
+    font-size: 18px;
+    width: 50%;
+}
+
+
+
+
+/* .top {
+    display:grid;
+    flex-direction: column;
+} */
+
+.project-close {
+    position: absolute;
+    top:0;
+    right:0;
+}

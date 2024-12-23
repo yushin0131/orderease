@@ -1,0 +1,35 @@
+/* グラフ全体を囲むコンテナ */
+.linegraph-container {
+  max-width: 600px;
+  /* グラフの最大幅 */
+  margin: 20px auto;
+  /* コンテナを中央に配置 */
+  padding: 20px;
+  background-color: #f5f5f5;
+  /* 背景色を淡いグレーに */
+  border-radius: 8px;
+  /* 角を丸く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* 薄いシャドウで立体感を追加 */
+}
+
+/* グラフタイトルのスタイル */
+.linegraph-title {
+  text-align: center;
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* グラフの凡例（ラベル）のスタイル */
+.linegraph-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.linegraph-legend-item {
+  margin: 0 10px;
+  font-size: 0.9em;
+  color: #666;
+}

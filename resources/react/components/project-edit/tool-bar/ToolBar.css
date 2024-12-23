@@ -1,0 +1,38 @@
+.toolBar {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100vw;
+  height:10vh;
+  color: black;
+  /* padding-bottom: 1%; */
+  display: flex;
+  /* padding:1%; */
+}
+
+.tool{
+  cursor: pointer;
+  height:8vh;
+  width:10vh;
+  padding:0 1.5vh;
+  margin: 0.25% 1px;
+  border:1px black solid;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.selectedTool{
+  color: red;
+  border: 1px red solid;
+}
+
+
+.toolBar::-webkit-scrollbar {
+  background: white;
+  height: 3px;
+  border-radius: 20px;
+}
+
+.toolBar::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 20px;
+}

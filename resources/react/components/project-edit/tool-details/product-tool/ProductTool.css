@@ -1,0 +1,6 @@
+.productRegister{
+    cursor: pointer;
+}
+.productRegister:hover{
+    background-color: gray;
+}

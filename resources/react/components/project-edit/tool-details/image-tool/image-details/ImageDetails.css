@@ -1,0 +1,13 @@
+/* ツール表記のスタイル */
+.toolDetails .imageDetails{
+    border:1px black solid;
+    cursor: pointer;
+    width:7vw;
+    border: 1px black solid;
+}
+
+/* フォーム表記のスタイル */
+.form .imageDetails{
+    width:7vw;
+    /* cursor:n-resize; */
+}

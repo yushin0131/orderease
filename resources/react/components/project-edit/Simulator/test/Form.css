@@ -1,0 +1,11 @@
+.form{
+    height:100%;
+}
+
+.outerForm{
+    height:100%;
+}
+
+.formNewLine:hover{
+    background-color: gray;
+}
