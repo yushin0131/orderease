@@ -1,0 +1,14 @@
+{
+  "resources/react/index.css": {
+    "file": "assets/index-0d180af8.css",
+    "src": "resources/react/index.css"
+  },
+  "resources/react/index.tsx": {
+    "css": [
+      "assets/index-0d180af8.css"
+    ],
+    "file": "assets/index-e99ab692.js",
+    "isEntry": true,
+    "src": "resources/react/index.tsx"
+  }
+}
