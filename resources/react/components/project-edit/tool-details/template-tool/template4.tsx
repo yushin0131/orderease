@@ -7,12 +7,12 @@ type Props = {
     product: Product,
 }
 
-const Template1 = (props: Props) => {
+const Template4 = (props: Props) => {
     const { id, name, price, thumbnail } = props.product;
 
     return (
         <>
-            <div className="product" style={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+            <div className="product" style={{ display: 'flex', alignItems: 'center', textAlign: 'center',border:"solid 1px black",borderRadius:"10px"}}>
                 <img src={thumbnail} style={{ width: "auto", height: "100%", maxHeight: "15vh", margin: "0" }} />
                 <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '0px' }}>
                     <div>{name}</div>
@@ -30,6 +30,6 @@ const Template1 = (props: Props) => {
     )
 }
 
-export default Template1
+export default Template4
 
 

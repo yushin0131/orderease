@@ -5,16 +5,18 @@ import "./TemplateToolDetails.css";
 import { set } from 'react-datepicker/dist/date_utils';
 import Simulator from '../../../Simulator/Simulator';
 import Row from '../../../Row';
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 import Template2 from '../Template2';
+import Template3 from '../Template3';
+import Template4 from '../template4';
 
 type Props = {
     products: Product[];
     formLog: Row[][],
-  setFormLog: React.Dispatch<React.SetStateAction<Row[][]>>,
-  setFormBackLog: React.Dispatch<React.SetStateAction<Row[][]>>,
-  rows: Row[],
-  setRows: React.Dispatch<React.SetStateAction<Row[]>>,
+    setFormLog: React.Dispatch<React.SetStateAction<Row[][]>>,
+    setFormBackLog: React.Dispatch<React.SetStateAction<Row[][]>>,
+    rows: Row[],
+    setRows: React.Dispatch<React.SetStateAction<Row[]>>,
 };
 
 const TemplateToolDetails = (props: Props) => {
@@ -31,41 +33,49 @@ const TemplateToolDetails = (props: Props) => {
 
     const onClickTemplate = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, product: Product) => {
         // templates.push(<Template1 product={product} />);
-        switch(selectingTemplateIndex){
+        switch (selectingTemplateIndex) {
             case 0:
-                setApplyTemplate(<Template1 product={product}/>)
+                setApplyTemplate(<Template1 product={product} />)
                 break;
             case 1:
-                setApplyTemplate(<Template2 product={product}/>)
+                setApplyTemplate(<Template2 product={product} />)
+                break;
+            case 2:
+                setApplyTemplate(<Template3 product={product} />)
+                break;
+            case 3:
+                setApplyTemplate(<Template4 product={product} />)
                 break;
         }
 
 
 
-        
+
         // setIsCreatingTemplate(false);
     };
-    const onCreateTemplate = (i:number) => {
+    const onCreateTemplate = (i: number) => {
         setSelectingTemplateIndex(i);
         setIsCreatingTemplate(true);
     }
     const setTemplate = () => {
         const result = document.getElementById("applyTemplate")?.innerHTML as string
-        props.setFormLog([...props.formLog,props.rows])
-            props.setFormBackLog([])
-            const newRows=[...props.rows];
-            newRows.push([{id:uuid(),element:result,rowIndex:newRows.length}]);
-            props.setRows(newRows)
-            setSelectingTemplateIndex(-1);
-            setApplyTemplate(<></>)
-            setIsCreatingTemplate(false)
+        props.setFormLog([...props.formLog, props.rows])
+        props.setFormBackLog([])
+        const newRows = [...props.rows];
+        newRows.push([{ id: uuid(), element: result, rowIndex: newRows.length }]);
+        props.setRows(newRows)
+        setSelectingTemplateIndex(-1);
+        setApplyTemplate(<></>)
+        setIsCreatingTemplate(false)
     }
     return (
         <>
             {[
                 <Template1 product={product} />,
                 <Template2 product={product} />,
-            ].map((e,i) => {
+                <Template3 product={product} />,
+                <Template4 product={product} />,
+            ].map((e, i) => {
                 return (
                     <div
                         className="productTemplate"
@@ -98,9 +108,9 @@ const TemplateToolDetails = (props: Props) => {
                             </div>
                         );
                     })}
-                    <button onClick={() => {setIsCreatingTemplate(false);setSelectingTemplateIndex(-1);setApplyTemplate(<></>)}}>キャンセル</button>
+                    <button onClick={() => { setIsCreatingTemplate(false); setSelectingTemplateIndex(-1); setApplyTemplate(<></>) }}>キャンセル</button>
                     <button onClick={setTemplate}>追加</button>
-                    <div id = "applyTemplate">
+                    <div id="applyTemplate">
                         {applyTemplate}
                     </div>
                 </div>

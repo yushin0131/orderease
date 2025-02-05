@@ -58,7 +58,7 @@ class NewProjectUpdateController extends Controller
         $project->title = $title;
         $project->wrap_user_id = $wrapUser->id;
         $project->thumbnail = $thumbnail;
-        $project->is_published = $isPublished;
+        $project->is_published = true;
         $project->html_code = $htmlCode;
         $project->deployHtmlCode = $deployHtmlCode;
         $project->background_color = $backgroundColor;

@@ -6,7 +6,7 @@ body {
 .order-log-container {
     display: grid;
     grid-template-rows: auto 1fr;
-    height: 70vh;
+    height: 100vh;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
     max-width: 100%;
@@ -26,6 +26,7 @@ body {
 /* 注文リスト */
 .order-log-list {
     overflow-y: auto;
+    height: 70vh;
     padding: 8px;
 }
 

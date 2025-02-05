@@ -116,6 +116,7 @@ const OrderProcess: React.FC<OrderProcessProps> = ({ setCart, tabs }) => {
         handleClickOpen(id, name, price);
       })
     })
+    return <></>
   }
 
   const addCart = () => {

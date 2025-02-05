@@ -27,7 +27,7 @@ const PublishedProjectState = (props: Props) => {
     return (
         <div className='published-container'>
             <div style={{ display: "flex" }}>
-                <div className='published-project-name'>プロジェクト名</div>
+                {/* <div className='published-project-name'>プロジェクト名</div> */}
                 <span className="published-project-state-close" onClick={() => setShared({ isPublishedProjectStating }, false)}>
                     <div className="tooltip">
                         <MdClose size={"28px"} />
@@ -37,8 +37,6 @@ const PublishedProjectState = (props: Props) => {
             </div>
 
             <StoreOrderLog/>
-            <hr />
-            <CheckoutFin/>
         </div>
 
 
