@@ -7,6 +7,7 @@ import { saveAs } from 'file-saver';
 type Props = {
   setIsExporting: React.Dispatch<React.SetStateAction<boolean>>,
   formRef: React.RefObject<HTMLDivElement>,
+  projectId: number,
 }
 
 const Export = (props: Props) => {
@@ -49,7 +50,7 @@ const Export = (props: Props) => {
     if (inputValue == "0" || inputValue == "") return;
 
     const urls = [...Array(Number(inputValue))].map((e, i) => {
-      return `${location.href}visitor?testId=${i}`;
+      return `${location.href}visitor?projectId=${props.projectId}&seatId=${i + 1}`;
     })
     const zip = new JSZip();
 

@@ -21,12 +21,12 @@ const Checkout: React.FC<CheckoutProps> = ({ orders, setOrders }) => {
         return orders.reduce((total, order) => total + order.quantity * order.price, 0);
     }
 
-    const handlecheckout = () => {
-        setOrders([]);
-        setMode(ORDER);
-        setFooterValue(0);
-        alert("会計が終了しました");
-    }
+    // const handlecheckout = () => {
+    //     setOrders([]);
+    //     setMode(ORDER);
+    //     setFooterValue(0);
+    //     alert("会計が終了しました");
+    // }
 
     return (
         <div className="checkout-container"> {/* コンテナのスタイルを変更 */}
@@ -44,13 +44,13 @@ const Checkout: React.FC<CheckoutProps> = ({ orders, setOrders }) => {
             </div>
             <div className="confirmation">
                         会計内容をご確認のうえ、<br/>
-                        レジでお支払いください。
+                        レジでこちらの画面をご提示ください。
             </div>
             <div className="checkout-order-summary">
                 <div className="checkout-total-amount">合計金額: ¥{calculateTotal()}</div>
-                <button className="checkout-button" onClick={handlecheckout}>
+                {/* <button className="checkout-button" onClick={handlecheckout}>
                     会計を終了
-                </button>
+                </button> */}
             </div>
         </div>
     );

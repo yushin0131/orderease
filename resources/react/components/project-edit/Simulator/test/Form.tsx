@@ -5,6 +5,7 @@ import { DragDropContext, Draggable, DragUpdate, Droppable, DroppableProps, Drop
 import { StrictModeDroppable } from './StrictModeDroppable';
 import Row from '../../Row';
 import { disableBodyScroll } from 'body-scroll-lock';
+import { blue } from '@mui/material/colors';
 
 type Props = {
     formRef: React.RefObject<HTMLDivElement>,
@@ -16,9 +17,10 @@ type Props = {
     setFormBackLog: React.Dispatch<React.SetStateAction<Row[][]>>,
     direction: "horizontal" | "vertical",
     setDirection: React.Dispatch<React.SetStateAction<"horizontal" | "vertical">>,
+    color:string,
 }
 
-const Form = ({ formRef, rows, setRows, formLog, setFormLog, formBackLog, setFormBackLog, direction, setDirection }: Props) => {
+const Form = ({ formRef, rows, setRows, formLog, setFormLog, formBackLog, setFormBackLog, direction, setDirection, color }: Props) => {
     const onDragEnd = (result: DropResult) => {
         if (!result.destination || result.source.droppableId == "outerForm") return;
 
@@ -162,7 +164,7 @@ const Form = ({ formRef, rows, setRows, formLog, setFormLog, formBackLog, setFor
     }
 
     return (
-        <div className="form">
+        <div className="form" style={{backgroundColor:color}}>
             <DragDropContext onDragEnd={onDragEnd}>
                 <div className="outerForm">
                     <div ref={formRef} className="innerForm">

@@ -126,7 +126,7 @@ const OrderProcess: React.FC<OrderProcessProps> = ({ setCart, tabs }) => {
       price: productDetails.price,
     })
     setOpen(false);
-    console.log(productDetails);
+    // console.log(productDetails);
   }
 
   const canAddToCart = productDetails.quantity > 0;

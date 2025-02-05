@@ -45,6 +45,7 @@ class NewProjectUpdateController extends Controller
         $htmlCode = $request->get('htmlCode');
         $deployHtmlCode=$request->get('deployHtmlCode');
         $wrapUser = SessionValidator::execute($request);
+        $backgroundColor=$request->get('backgroundColor');
 
         if (!$wrapUser) {
             return [
@@ -59,7 +60,8 @@ class NewProjectUpdateController extends Controller
         $project->thumbnail = $thumbnail;
         $project->is_published = $isPublished;
         $project->html_code = $htmlCode;
-        $project->deployHtmlCode=$deployHtmlCode;
+        $project->deployHtmlCode = $deployHtmlCode;
+        $project->background_color = $backgroundColor;
         $project->save();
         return [
             'isSessionValid' => true,

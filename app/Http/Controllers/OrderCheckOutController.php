@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewProject;
-use Exception;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class NewProjectGetController extends Controller
+class OrderCheckOutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,7 @@ class NewProjectGetController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -35,18 +36,12 @@ class NewProjectGetController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $projectId = $request->get('projectId');
-            $project = NewProject::find($projectId);
-            $html_code = $project->deployHtmlCode;
-            $backgroundColor=$project->background_color;
-            return [
-                'htmlCode' => $html_code,
-                'backgroundColor' => $backgroundColor
-
-            ];
-        } catch (Exception $ex) {
-            return $ex;
+        $projectId=$request->get("projectId");
+        $seatId=$request->get("seatId");
+        $orders=Order::where("project_id",$projectId)->where("seat_number",$seatId)->get();
+        foreach($orders as $order){
+            $order->is_check=true;
+            $order->save();
         }
     }
 
@@ -62,7 +57,7 @@ class NewProjectGetController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -94,18 +89,4 @@ class NewProjectGetController extends Controller
     {
         //
     }
-
 }
-
-// <!-- 当ファイルはcontrollersに配置してください -->
-// <!-- routes/api.phpに下記のコードを追記してください -->
-// <!-- 
-// Route::resource("newprojectget",NewProjectGetController::class);
-// -->
-// <!-- 
-// API呼び出し方(フロント側)
-// axios.post<{htmlCode:string}>({projectId:「プロジェクトのID」}).then(res=>{
-//     const {htmlCode}=res.data;
-
-// });
-// -->

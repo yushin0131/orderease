@@ -9,8 +9,14 @@ body {
 }
 
 .tab-name {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     height: 10vh;
-    margin-left: 2vw;
+}
+
+.seat-number {
+    margin-right: 5%;
 }
 
 .footer-tab {

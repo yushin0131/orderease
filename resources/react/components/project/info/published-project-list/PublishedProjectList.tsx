@@ -19,7 +19,7 @@ const PublishedProjectList = (props: Props) => {
       <div>公開されているプロジェクト</div>
       <div className="published-project-cards">
         {props.projects.map((project) => (
-          <div key={project.id} className="published-project-card" onClick={()=>setShared({isPublishedProjectStating},true)}>
+          <div key={project.id} className="published-project-card" onClick={()=>{setShared({isPublishedProjectStating},true);sessionStorage.setItem("selectedPublishedProjectId",""+project.id);}}>
             <img src={project.thumbnail} alt={project.title} className="published-project-image" /> {/* 画像を表示 */}
             <span className="published-title">{project.title}</span>
           </div>

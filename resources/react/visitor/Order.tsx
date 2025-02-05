@@ -18,9 +18,12 @@ interface ProductInformation {
   price: number;
 }
 type Props ={
-  formHtml:string
+  formHtml:string,
+  backgroundColor:string,
+  projectId:string,
+  seatId:string,
 }
-const Order = ({formHtml}:Props) => {
+const Order = ({formHtml,backgroundColor,projectId,seatId}:Props) => {
 
   const [footerValue, setFooterValue] = React.useState(0);
 
@@ -250,7 +253,7 @@ const Order = ({formHtml}:Props) => {
   // 初期時のモードと、モードごとに対応するHTML要素を設定
   const [mode, setMode] = useRender(ORDER, {
     [ORDER]: <OrderProcess setCart={setCart} tabs={tabs} />,
-    [CART]: <Cart cart={cart} setCart={setCart} orders={orders} setOrders={setOrders} />,
+    [CART]: <Cart cart={cart} setCart={setCart} orders={orders} setOrders={setOrders} projectId={projectId} seatId={seatId}/>,
     [ORDER_LOG]: <OrderLog orders={orders} />,
     [CHECKOUT]: <Checkout orders={orders} setOrders={setOrders} />,
   });
@@ -278,11 +281,12 @@ const Order = ({formHtml}:Props) => {
   })
 
   return (
-    <div className="orderWrapper" style={{overflowX:"hidden"}}>
+    <div className="orderWrapper" style={{overflowX:"hidden",backgroundColor:backgroundColor}}>
       <div className="tab-name" style={{ display: "flex", alignItems: "center" }}>
         <Typography variant="h5" component="div">
           {getTabLabel()}
         </Typography>
+        <div className='seat-number'>席番号:{seatId}</div>
       </div>
       <Divider />
       <Render mode={mode} />

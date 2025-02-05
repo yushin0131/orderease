@@ -1,0 +1,35 @@
+{
+  "_TextField-4ca6048f.js": {
+    "file": "assets/TextField-4ca6048f.js"
+  },
+  "resources/react/index.css": {
+    "file": "assets/index-d46ed303.css",
+    "src": "resources/react/index.css"
+  },
+  "resources/react/index.tsx": {
+    "css": [
+      "assets/index-d46ed303.css"
+    ],
+    "file": "assets/index-14cd88f6.js",
+    "imports": [
+      "_TextField-4ca6048f.js"
+    ],
+    "isEntry": true,
+    "src": "resources/react/index.tsx"
+  },
+  "resources/react/visitor/visitor-index.css": {
+    "file": "assets/visitor-index-472a736f.css",
+    "src": "resources/react/visitor/visitor-index.css"
+  },
+  "resources/react/visitor/visitor-index.tsx": {
+    "css": [
+      "assets/visitor-index-472a736f.css"
+    ],
+    "file": "assets/visitor-index-1f02c2a1.js",
+    "imports": [
+      "_TextField-4ca6048f.js"
+    ],
+    "isEntry": true,
+    "src": "resources/react/visitor/visitor-index.tsx"
+  }
+}

@@ -1,11 +1,5 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
+Route::get('/{any}', function () {
     return view('index');
-});
-
-Route::get('/visitor',function(){
-    return view('visitor');
-});
+})->where('any', '.*');

@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import "./Simulator.css"
 import Form from './test/Form'
 import Row from '../Row';
+import { Color } from '@mui/material';
 type Props = {
     formRef:React.RefObject<HTMLDivElement>,
     rows: Row[],
@@ -12,6 +13,7 @@ type Props = {
     setFormBackLog:React.Dispatch<React.SetStateAction<Row[][]>>,
     direction: "horizontal" | "vertical",
     setDirection: React.Dispatch<React.SetStateAction<"horizontal" | "vertical">>,
+    color:string,
 }
 
 const Simulator = (props: Props) => {

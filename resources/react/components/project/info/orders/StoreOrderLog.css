@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+}
+
+/* OrderLogのコンテナ */
+.order-log-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 70vh;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* 注文一覧のタイトル */
+.order-log-container > div:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* 注文リスト */
+.order-log-list {
+    overflow-y: auto;
+    padding: 8px;
+}
+
+/* 各注文アイテム */
+.order-log-item {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid #ecf0f1;
+    cursor: pointer;
+}
+
+/* 注文詳細 */
+.order-log-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.order-seat {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.order-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.order-price,
+.order-quantity {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* 注文の合計金額 */
+.order-total {
+    font-size: 1rem;
+    font-weight: bold;
+}

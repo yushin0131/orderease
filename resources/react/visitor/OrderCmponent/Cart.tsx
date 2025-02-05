@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Cart.css'
 import { useShared } from '../useShared';
+import axios from 'axios';
 
 interface ProductInformation {
     id: number;         // 商品のユニークID
@@ -14,9 +15,11 @@ interface CartProps {
     setCart: React.Dispatch<React.SetStateAction<ProductInformation[]>>
     orders: ProductInformation[]
     setOrders: React.Dispatch<React.SetStateAction<ProductInformation[]>>
+    projectId:string,
+    seatId:string,
 }
 
-const Cart: React.FC<CartProps> = ({ cart, setCart, orders, setOrders }) => {
+const Cart: React.FC<CartProps> = ({ cart, setCart, orders, setOrders ,projectId,seatId}) => {
     const { setMode, setFooterValue, ORDER, CART, CHECKOUT, ORDER_LOG } = useShared.states();
 
     // カート内の合計金額を計算
@@ -43,11 +46,24 @@ const Cart: React.FC<CartProps> = ({ cart, setCart, orders, setOrders }) => {
 
     const handleConfirmOrder = () => {
         alert('注文が確定しました！');
+        cart.forEach(product=>{
+            axios.post("/api/orderadd",{
+                projectId,seatId,
+                productName:product.name,
+                quantity:product.quantity,
+                price:product.price,
+            }).then(res=>{
+                console.log(res.data);
+            })
+        })
         setOrders((prevOrders) => [...prevOrders, ...cart]);
         setCart([]); // カートを空にする
         setMode(ORDER);
         setFooterValue(0);
         console.log("注文",orders);
+
+
+
     }
 
     return (

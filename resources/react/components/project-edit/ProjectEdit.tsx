@@ -22,6 +22,7 @@ import TreeView from './tree-view/TreeView'
 import ProductTool from './tool-details/product-tool/ProductTool'
 import Product from './tool-details/product-tool/Product'
 import TemplateTool from './tool-details/template-tool/TemplateTool'
+import BackgroundTool from './tool-details/background-tool/BackgroundTool'
 type Props = {}
 
 const ProjectEdit = (props: Props) => {
@@ -30,6 +31,8 @@ const ProjectEdit = (props: Props) => {
   const [isExporting, setIsExporting] = useState(false);
   const [isOptioning, setIsOptioning] = useState(false);
   const [formLog, setFormLog] = useState<Row[][]>([]);
+
+  const [color, setColor] = useState("#fff");
 
   const [formBackLog, setFormBackLog] = useState<Row[][]>([]);
 
@@ -62,12 +65,13 @@ const ProjectEdit = (props: Props) => {
   const [title, setTitle] = useState(editingProject.title);
 
   const [images, setImages] = useState<string[]>([]);
-  const [IMAGE_TOOL, TEXT_TOOL,PRODUCT_TOOL,TEMPLATE_TOOL] = useMode(4);
+  const [IMAGE_TOOL, TEXT_TOOL,PRODUCT_TOOL,TEMPLATE_TOOL,BACKGROUND_TOOL] = useMode(5);
   const [toolMode, setToolMode] = useRender(IMAGE_TOOL, {
     [IMAGE_TOOL]: <ImageTool images={images} setImages={setImages} formLog={formLog} setFormLog={setFormLog} setFormBackLog={setFormBackLog} rows={rows} setRows={setRows} />,
     [TEXT_TOOL]: <TextTool formLog={formLog} setFormLog={setFormLog} setFormBackLog={setFormBackLog} rows={rows} setRows={setRows} />,
     [PRODUCT_TOOL]:<ProductTool products={products} setProducts={setProducts}/>,
     [TEMPLATE_TOOL]:<TemplateTool products={products}formLog={formLog} setFormLog={setFormLog} setFormBackLog={setFormBackLog} rows={rows} setRows={setRows} />,
+    [BACKGROUND_TOOL]:<BackgroundTool setColor={setColor}color={color} />
   });
 
 
@@ -131,10 +135,9 @@ const ProjectEdit = (props: Props) => {
     const thumbnail = editingProject.thumbnail;
     const title = titleRef.current ? titleRef.current.value : "";
     const isPublished = editingProject.is_published;
-    const deployHtmlCode="#####tabNameStart#####すべて#####tabNameFinish#####"+formRef.current!.innerHTML;
-
+    let deployHtmlCode="#####tabNameStart#####すべて#####tabNameFinish#####"+formRef.current!.innerHTML;
     axios.post("/api/newprojectupdate", {
-      emailOrOriginUserId, sessionId, authType, projectId: `${projectId}`, thumbnail, title, isPublished: `${isPublished}`, htmlCode,deployHtmlCode,
+      emailOrOriginUserId, sessionId, authType, projectId: `${projectId}`, thumbnail, title, isPublished: `${isPublished}`, htmlCode,deployHtmlCode,backgroundColor:color,
     }).then(res => {
       user?.projects.filter(project => project.id == editingProject.id).forEach(project => {
         // 変更したものはすべてここで適用
@@ -211,16 +214,16 @@ const ProjectEdit = (props: Props) => {
   return (
     <div className="projectEdit">
       <Top title={title} formLog={formLog} formBackLog={formBackLog} saveRef={saveRef} formRef={formRef} titleRef={titleRef} backRef={backRef} forwardRef={forwardRef} setIsOptioning={setIsOptioning} saveEventHandler={saveEventHandler} backEventHandler={backEventHandler} forwardEventHandler={forwardEventHandler} optionEventHandler={optionEventHandler} exportEventHandler={exportEventHandler} closeEventHandler={closeEventHandler} />
-      <ToolBar toolMode={toolMode} setToolMode={setToolMode} modes={{ IMAGE_TOOL, TEXT_TOOL,PRODUCT_TOOL ,TEMPLATE_TOOL}} />
+      <ToolBar toolMode={toolMode} setToolMode={setToolMode} modes={{ IMAGE_TOOL, TEXT_TOOL,PRODUCT_TOOL ,TEMPLATE_TOOL,BACKGROUND_TOOL}} />
       <div className="projectEditMain" style={{ display: "grid", gridTemplateColumns: "6fr 10fr 2fr 3fr 3fr" }}>
         <ToolDetails toolMode={toolMode} />
-        <Simulator formRef={formRef} rows={rows} setRows={setRows} formLog={formLog} setFormLog={setFormLog} formBackLog={formBackLog} setFormBackLog={setFormBackLog} direction={direction} setDirection={setDirection} />
+        <Simulator formRef={formRef} rows={rows} setRows={setRows} formLog={formLog} setFormLog={setFormLog} formBackLog={formBackLog} setFormBackLog={setFormBackLog} direction={direction} setDirection={setDirection} color={color}/>
         <SimulatorSetting direction={direction} setDirection={setDirection} />
         {/* <Property formRef={formRef} rows={rows}/>
         <TreeView formRef={formRef} rows={rows}/> */}
       </div>
       {isOptioning ? <Option project={editingProject} setIsOptioning={setIsOptioning} /> : <></>}
-      {isExporting ? <Export formRef={formRef} setIsExporting={setIsExporting} /> : <></>}
+      {isExporting ? <Export projectId={editingProject.id} formRef={formRef} setIsExporting={setIsExporting} /> : <></>}
     </div>
   )
 }

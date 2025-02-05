@@ -3,6 +3,7 @@ import UserProfile from './user-profile/UserProfile';
 import PublishedProjectList from './published-project-list/PublishedProjectList';
 import "./Info.css"
 import { useShared } from '../../useShared';
+import CheckoutFin from './orders/CheckOutFin';
 
 
 type Props = {
