@@ -12,7 +12,7 @@ const Template1 = (props: Props) => {
 
     return (
         <>
-        <div style={{textAlign:'center'}}>
+        <div className="product" style={{textAlign:'center'}}>
             <div>{name}</div>
             <div>{price}</div>
             
