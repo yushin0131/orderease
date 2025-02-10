@@ -11,6 +11,7 @@ type Props = {
   setFormBackLog: React.Dispatch<React.SetStateAction<Row[][]>>,
   rows: Row[],
   setRows: React.Dispatch<React.SetStateAction<Row[]>>,
+  backgroundColor:string,
 }
 
 const TemplateTool = (props: Props) => {

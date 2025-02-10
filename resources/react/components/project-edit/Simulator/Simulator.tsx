@@ -18,7 +18,7 @@ type Props = {
 
 const Simulator = (props: Props) => {
     return (
-        <div className="simulator" onDragOver={e=>e.preventDefault()}>
+        <div className="simulator" style={{backgroundColor:props.color}} onDragOver={e=>e.preventDefault()}>
             <Form {...props} />
         </div>
     )

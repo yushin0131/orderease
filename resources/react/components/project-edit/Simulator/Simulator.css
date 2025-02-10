@@ -1,5 +1,4 @@
 .simulator {
-    height: vh;
     border: 1px black solid;
     /* border-radius: 20px; */
     overflow: scroll;
@@ -8,9 +7,10 @@
     /* または以下でも可 */
     word-break: break-all;
     /* position:absolute; */
+    height: 50vh;
 }
 
 .simulator::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
     /* スクロールバーを非表示 */
 }

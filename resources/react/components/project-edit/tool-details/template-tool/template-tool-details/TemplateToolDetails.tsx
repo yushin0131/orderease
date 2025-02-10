@@ -17,6 +17,7 @@ type Props = {
     setFormBackLog: React.Dispatch<React.SetStateAction<Row[][]>>,
     rows: Row[],
     setRows: React.Dispatch<React.SetStateAction<Row[]>>,
+    backgroundColor:string,
 };
 
 const TemplateToolDetails = (props: Props) => {
@@ -87,31 +88,37 @@ const TemplateToolDetails = (props: Props) => {
                 );
             })}
             {isCreatingTemplate && (
-                <div
-                    style={{
-                        position: "fixed",
-                        top: 0,
-                        left: 0,
-                        width: "50vw",
-                        height: "50vh",
-                        backgroundColor: "black",
-                        color: "white",
-                    }}
-                >
-                    商品を選択
-                    {props.products.map(product => {
-                        return (
-                            <div onClick={(e) => onClickTemplate(e, product)}>
-                                {product.name}
-                                {product.price}
-                                <img src={product.thumbnail} style={{ width: "7vw" }} />
+                <div onClick={event => {
+                    const target = event.target as HTMLElement;
+                    if (target.classList.contains('ttd-black-filter')) {
+                        setIsCreatingTemplate(false);
+                        setSelectingTemplateIndex(-1);
+                        setApplyTemplate(<></>);
+                    }
+                }}>
+                    <div className="ttd-black-filter" />
+                    <div className="ttd-forword">
+                        商品を選択
+                        <div className="ttd-products">
+                            {props.products.map(product => {
+                                return (
+                                    <div onClick={(e) => onClickTemplate(e, product)}>
+                                        {product.name}
+                                        {product.price}
+                                        <img src={product.thumbnail} style={{ width: "7vw" }} />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        {/* <button onClick={() => { setIsCreatingTemplate(false); setSelectingTemplateIndex(-1); setApplyTemplate(<></>) }}>キャンセル</button> */}
+                        <button onClick={setTemplate}>追加</button>
+                        <div>プレビュー</div>
+                        <div style={{backgroundColor:props.backgroundColor}}>
+                            <div id="applyTemplate">
+                                {applyTemplate}
                             </div>
-                        );
-                    })}
-                    <button onClick={() => { setIsCreatingTemplate(false); setSelectingTemplateIndex(-1); setApplyTemplate(<></>) }}>キャンセル</button>
-                    <button onClick={setTemplate}>追加</button>
-                    <div id="applyTemplate">
-                        {applyTemplate}
+                        </div>
+
                     </div>
                 </div>
             )}

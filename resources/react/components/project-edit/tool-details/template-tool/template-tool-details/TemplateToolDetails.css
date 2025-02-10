@@ -2,3 +2,55 @@
     cursor: pointer;
     border-bottom:1px black solid;
 }
+
+.ttd-black-filter {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.ttd-forword{
+    position:fixed;
+    top:25vh;
+    left:25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border:1px black solid;
+    width: 50vw;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 30px;
+    font-size: 16px;
+    z-index:101;
+}
+
+.ttd-products{
+    overflow-y: scroll;
+    max-height: 30vh;
+}
+
+/* スクロールバーのスタイル */
+.ttd-products::-webkit-scrollbar {
+    width: 12px;
+}
+
+.ttd-products::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.ttd-products::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.ttd-products::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -55,22 +55,30 @@ const ProductTool = (props: Props) => {
         <div>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
                 {props.products.map(product => {
-                    return <div style={{ width: "7vw", height: "7vw", backgroundColor: "gray", border: "black 1px solid" }}>
-                        <img src={product.thumbnail} title={product.name} style={{width:"7vw"}} alt="ない" />
-                        <div>{product.name}</div>
-                        <div>{product.price}</div>
+                    return <div style={{ width: "7vw", height: "7vw", border: "black 1px solid" }}>
+                        <img src={product.thumbnail} title={`商品：${product.name}\n金額：${product.price}`} style={{width:"7vw"}} alt="ない" />
+                        <div style={{ display: "flex", justifyContent: "space-between" }}>
+                            {/* <div>{product.name.length > 5 ? `${product.name.substring(0, 5)}... ` : product.name}</div>
+                            <div>{product.price}</div> */}
+                        </div>
                     </div>
                 })}
                 <IoMdAdd size={"7vw"} className="productRegister" onClick={() => setIsAddProduct(true)} />
             </div>
             {isAddProduct && (
-                <div style={{ position: "fixed", top: 0, left: 0 }}>
-                    <div style={{ width: "50vw", height: "50vh", backgroundColor: "black", color: "white" }}>
+                <div onClick={event=>{
+                    const target = event.target as HTMLElement;
+                    if (target.classList.contains('tp-black-filter')) {
+                      setIsAddProduct(false);
+                    }
+                }}>
+                    <div className="tp-black-filter"/>
+                    <div className='addProductToolForward'>
                         <div>商品名<input ref={nameRef}/></div>
-                        <div>画像<input type="file" onChange={onChangeThumbnail} /></div>
+                        <div>　　　　画像<input type="file" onChange={onChangeThumbnail} /></div>
                         <div>価格<input ref={priceRef}/></div>
                         <button onClick={productRegister}>登録</button>
-                        <button onClick={() => setIsAddProduct(false)}>キャンセル</button>
+                        {/* <button onClick={() => setIsAddProduct(false)}>キャンセル</button> */}
                     </div>
                 </div>
             )}

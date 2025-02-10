@@ -11,6 +11,7 @@ type Project = {
     html_code:string,
     created_at:string,
     updated_at:string,
+    background_color:string,
 }
 
 

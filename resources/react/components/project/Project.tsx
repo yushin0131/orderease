@@ -16,7 +16,7 @@ const Project = (props: Props) => {
   const [mode, setMode] = useRender(USER_INFO, {
     [USER_INFO]: <Info />,
     [PROJECT_EDIT]: <Manage />,
-    [CUSTOM_TOOL]: <CustomTool />,
+    // [CUSTOM_TOOL]: <CustomTool />,
   })
 
   // const {setShared,user}=useShared.states();
@@ -31,7 +31,7 @@ const Project = (props: Props) => {
   
   return (
     <div style={{display: "grid",gridTemplateColumns:"1fr 4fr"}}>
-      <ProjectModeSelect modes={[USER_INFO, PROJECT_EDIT, CUSTOM_TOOL]} setMode={setMode} />
+      <ProjectModeSelect modes={[USER_INFO, PROJECT_EDIT, /*CUSTOM_TOOL*/]} setMode={setMode} />
       <div className="project-mode-content">
         <Render mode={mode} />
       </div>

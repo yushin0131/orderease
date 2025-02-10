@@ -1,3 +1,5 @@
+
+
 .item{
     border:1px black solid;
     cursor: pointer;
@@ -6,3 +8,33 @@
 .item:hover{
     background-color: gray;
 }
+
+.addProductCommentForward{
+    position:fixed;
+    top:35vh;
+    left:25vw;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border:1px black solid;
+    width: 50vw;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 30px;
+    font-size: 16px;
+    z-index:101;
+}
+
+.st-black-filter {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
+

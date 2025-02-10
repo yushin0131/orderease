@@ -6,13 +6,13 @@ import { Project, useShared } from '../../../useShared';
 import axios from 'axios';
 import { uploadImage } from '../../../../firebase/firebase';
 type Props = {
-    setIsCreatingNewProject:React.Dispatch<React.SetStateAction<boolean>>,
+    setIsCreatingNewProject: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 const NewProject = (props: Props) => {
     const projectTitleRef = useRef<HTMLInputElement>(null);
     const [projectThumbnail, setProjectThumbnail] = useState<string | null>(null);
-    const {setShared,user,isProjectEditing,editingProject}=useShared.states();
+    const { setShared, user, isProjectEditing, editingProject } = useShared.states();
 
     const handleProjectThumbnailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -23,8 +23,8 @@ const NewProject = (props: Props) => {
             alert("画像ファイルを選択してください");
             return;
         }
-        uploadImage(file).then(uri=>{
-            if(uri){
+        uploadImage(file).then(uri => {
+            if (uri) {
                 setProjectThumbnail(uri);
             }
         })
@@ -32,7 +32,7 @@ const NewProject = (props: Props) => {
 
     const handleOnCreate = () => {
         if (!projectTitleRef.current) return;
-        const {sessionId,emailOrOriginUserId,authType}=sessionAuth();
+        const { sessionId, emailOrOriginUserId, authType } = sessionAuth();
         const projectData = {
             sessionId, emailOrOriginUserId, authType,
             title: projectTitleRef.current.value,
@@ -41,7 +41,7 @@ const NewProject = (props: Props) => {
         axios.post<{ isSessionValid: boolean, project: Project }>("/api/newprojectadd", projectData).then(res => {
             console.log(res.data);
             if (res.data.isSessionValid) {
-                
+
                 user?.projects.push(res.data.project)
                 setShared({ isProjectEditing }, true);
                 setShared({ editingProject }, res.data.project);
@@ -51,6 +51,13 @@ const NewProject = (props: Props) => {
 
     return (
         <div className="newProject">
+            <div className="np-black-filter"
+                onClick={event => {
+                    const target = event.target as HTMLElement;
+                    if (target.classList.contains('np-black-filter')) {
+                        props.setIsCreatingNewProject(false);
+                    }
+                }} />
             <div className="newProjectForward">
                 <div style={{ textAlign: "center" }}>
                     <span>プロジェクト名：</span>
@@ -67,7 +74,7 @@ const NewProject = (props: Props) => {
                 </label>
                 <div>
                     <button onClick={handleOnCreate}>作成</button>
-                    <button onClick={()=>props.setIsCreatingNewProject(false)}>キャンセル</button>
+                    {/* <button onClick={()=>props.setIsCreatingNewProject(false)}>キャンセル</button> */}
                 </div>
             </div>
         </div>

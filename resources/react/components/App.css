@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'クラフト明朝';
+    src: url('/craftmincho.otf');
+}
+
 body{
     overflow-y: hidden;
     overflow-x:hidden;

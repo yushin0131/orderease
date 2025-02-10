@@ -1,5 +1,6 @@
 import React from 'react'
 import SharpText from './text-details/SharpText'
+import SharpText2 from './text-details/SharpText2'
 import { uuid } from '../../../../lib/MegaMegaHooks';
 import Row from '../../Row';
 
@@ -25,6 +26,7 @@ const TextTool = (props: Props) => {
   return (
     <div>
       <SharpText itemClickEventHandler={itemClickEventHandler} />
+      <SharpText2 itemClickEventHandler={itemClickEventHandler} />
     </div>
   )
 }

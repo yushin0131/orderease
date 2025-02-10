@@ -32,14 +32,16 @@ const ProjectEdit = (props: Props) => {
   const [isOptioning, setIsOptioning] = useState(false);
   const [formLog, setFormLog] = useState<Row[][]>([]);
 
-  const [color, setColor] = useState("#fff");
+
 
   const [formBackLog, setFormBackLog] = useState<Row[][]>([]);
 
 
   const { setShared, setMenu, user, PROJECT, isProjectEditing, editingProject: abstractEditingProject } = useShared.states();
+
   const editingProject = abstractEditingProject as Project;
 
+  const [color, setColor] = useState(editingProject.background_color==null?"#fff":editingProject.background_color);
   const [products,setProducts]=useState<Product[]>([]);
 
   const [rows, setRows] = useState<Row[]>(
@@ -70,7 +72,7 @@ const ProjectEdit = (props: Props) => {
     [IMAGE_TOOL]: <ImageTool images={images} setImages={setImages} formLog={formLog} setFormLog={setFormLog} setFormBackLog={setFormBackLog} rows={rows} setRows={setRows} />,
     [TEXT_TOOL]: <TextTool formLog={formLog} setFormLog={setFormLog} setFormBackLog={setFormBackLog} rows={rows} setRows={setRows} />,
     [PRODUCT_TOOL]:<ProductTool products={products} setProducts={setProducts}/>,
-    [TEMPLATE_TOOL]:<TemplateTool products={products}formLog={formLog} setFormLog={setFormLog} setFormBackLog={setFormBackLog} rows={rows} setRows={setRows} />,
+    [TEMPLATE_TOOL]:<TemplateTool products={products}formLog={formLog} setFormLog={setFormLog} setFormBackLog={setFormBackLog} rows={rows} setRows={setRows} backgroundColor={color}/>,
     [BACKGROUND_TOOL]:<BackgroundTool setColor={setColor}color={color} />
   });
 
@@ -135,6 +137,9 @@ const ProjectEdit = (props: Props) => {
     const thumbnail = editingProject.thumbnail;
     const title = titleRef.current ? titleRef.current.value : "";
     const isPublished = editingProject.is_published;
+
+    editingProject.background_color=color;
+
     let deployHtmlCode="#####tabNameStart#####すべて#####tabNameFinish#####"+formRef.current!.innerHTML;
     axios.post("/api/newprojectupdate", {
       emailOrOriginUserId, sessionId, authType, projectId: `${projectId}`, thumbnail, title, isPublished: `${isPublished}`, htmlCode,deployHtmlCode,backgroundColor:color,

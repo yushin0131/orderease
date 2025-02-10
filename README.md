@@ -8,4 +8,4 @@ Route::resource("productadd",ProductAddController::class);
 ロリポップにssh接続したい場合
 ssh main.jp-orderease@ssh.lolipop.jp -p 2222
 全部yes
-パスワードはロリポップからコピペ
+パスワード:YxQRGIETGweIYkTwl5hKPpi7TCzLZApF
