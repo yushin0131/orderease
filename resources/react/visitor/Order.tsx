@@ -9,6 +9,7 @@ import Cart from './OrderCmponent/Cart';
 import "./Order.css"
 import OrderLog from './OrderCmponent/OrderLog';
 import Checkout from './OrderCmponent/Checkout';
+import Init from './OrderCmponent/Init';
 import { Render, useMode, useRender } from '../lib/MegaMegaHooks';
 
 interface ProductInformation {
@@ -25,7 +26,7 @@ type Props ={
 }
 const Order = ({formHtml,backgroundColor,projectId,seatId}:Props) => {
 
-  const [footerValue, setFooterValue] = React.useState(0);
+  const [footerValue, setFooterValue] = React.useState(-1);
 
   const footerHandleChange = (event: React.SyntheticEvent, newValue: number) => {
     setFooterValue(newValue);
@@ -78,168 +79,6 @@ const Order = ({formHtml,backgroundColor,projectId,seatId}:Props) => {
     }
   }
 
-//   const formHtml = `
-//   #####tabNameStart#####
-//   食べ物
-//   #####tabNameFinesh#####
-// <div class="order-list">
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品2</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="2" />
-//       <input name="product-name" value="商品2" />
-//       <input name="product-price" value="300" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-//   <div class="product">
-//     <span>商品1</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="1" />
-//       <input name="product-name" value="商品1" />
-//       <input name="product-price" value="100" />
-//     </span>
-//   </div>
-// </div>
-// #####split-target#####
-// #####tabNameStart#####
-//   飲み物
-// #####tabNameFinesh#####
-// <div class="order-list">
-//   <div class="product">
-//     <span>商品3</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="3" />
-//       <input name="product-name" value="商品3" />
-//       <input name="product-price" value="400" />
-//     </span>
-//   </div>
-// </div>
-// #####split-target#####
-// #####tabNameStart#####
-// デザート
-// #####tabNameFinesh#####
-// <div class="order-list">
-//   <div class="product">
-//     <span>商品4</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="4" />
-//       <input name="product-name" value="商品4" />
-//       <input name="product-price" value="200" />
-//     </span>
-//   </div>
-// </div>
-// #####split-target#####
-// #####tabNameStart#####
-// その他
-// #####tabNameFinesh#####
-// <div class="order-list">
-//   <div class="product">
-//     <span>商品5</span>
-//     <span style="display: none;">
-//       <input name="product-id" value="4" />
-//       <input name="product-name" value="商品4" />
-//       <input name="product-price" value="200" />
-//     </span>
-//   </div>
-// </div>
-// `;
-
   const tabs = formHtml.split("#####split-target#####");
 
   const [cart, setCart] = useState<ProductInformation[]>([]);
@@ -248,10 +87,11 @@ const Order = ({formHtml,backgroundColor,projectId,seatId}:Props) => {
   // 使用例
 
   // モードを3つ用意
-  const [ORDER, CART, CHECKOUT, ORDER_LOG] = useMode(3);
+  const [INIT,ORDER, CART, CHECKOUT, ORDER_LOG] = useMode(5);
 
   // 初期時のモードと、モードごとに対応するHTML要素を設定
-  const [mode, setMode] = useRender(ORDER, {
+  const [mode, setMode] = useRender(INIT, {
+    [INIT]:<Init />,
     [ORDER]: <OrderProcess setCart={setCart} tabs={tabs} />,
     [CART]: <Cart cart={cart} setCart={setCart} orders={orders} setOrders={setOrders} projectId={projectId} seatId={seatId}/>,
     [ORDER_LOG]: <OrderLog orders={orders} />,

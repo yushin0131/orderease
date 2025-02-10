@@ -9,21 +9,23 @@ type Props = {}
 const VisitorApp = (props: Props) => {
   const [htmlCode, setHtmlCode] = useState("");
   const [backgroundColor, setBackgroundColor] = useState("#fff");
+  const [name,setName]=useState("");
   const params = new URLSearchParams(window.location.search);
 
-// クエリパラメータから特定の値を取得
-const projectId = params.get('projectId'); // 'key'は取得したいクエリ名
-const seatId = params.get('seatId'); // 'key'は取得したいクエリ名
+  // クエリパラメータから特定の値を取得
+  const projectId = params.get('projectId') as string; // 'key'は取得したいクエリ名
+  const seatId = params.get('seatId') as string; // 'key'は取得したいクエリ名
 
-console.log(projectId)
+  console.log(projectId)
 
-  
+
   useEffect(() => {
-    axios.post<{ htmlCode: string ,backgroundColor:string }>("/api/newprojectget", { projectId: projectId }).then(res => {
+    axios.post<{ htmlCode: string, backgroundColor: string }>("/api/newprojectget", { projectId: projectId }).then(res => {
       setHtmlCode(res.data.htmlCode);
       setBackgroundColor(res.data.backgroundColor);
     });
   }, []);
+
 
   return (
     <div className="visitor-app">

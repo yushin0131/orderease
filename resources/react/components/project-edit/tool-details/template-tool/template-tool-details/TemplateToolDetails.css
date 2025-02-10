@@ -18,6 +18,7 @@
     position:fixed;
     top:25vh;
     left:25vw;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;

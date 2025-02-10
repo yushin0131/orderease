@@ -7,7 +7,7 @@
     /* または以下でも可 */
     word-break: break-all;
     /* position:absolute; */
-    height: 50vh;
+    height: 80vh;
 }
 
 .simulator::-webkit-scrollbar {

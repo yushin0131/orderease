@@ -26,7 +26,7 @@ const TextTool = (props: Props) => {
   return (
     <div>
       <SharpText itemClickEventHandler={itemClickEventHandler} />
-      <SharpText2 itemClickEventHandler={itemClickEventHandler} />
+      {/* <SharpText2 itemClickEventHandler={itemClickEventHandler} /> */}
     </div>
   )
 }
